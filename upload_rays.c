@@ -6,7 +6,7 @@
 /*   By: moulmado <moulmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:29:26 by moulmado          #+#    #+#             */
-/*   Updated: 2022/11/30 14:49:01 by moulmado         ###   ########.fr       */
+/*   Updated: 2022/11/30 14:52:22 by moulmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void upload_rays(t_cub *cub)
 		cub->rays[ndx].type = ray_cast(cub, ndx);
 		cub->rays[ndx].type = edit_ray_type(cub->rays[ndx]);
 		adjust_ray_hit_cords(cub, ndx);
-		draw_line(cub, cub->player->x + cos(cub->rays[ndx].angle) * cub->rays[ndx].dst,
-				  cub->player->y + sin(cub->rays[ndx].angle) * cub->rays[ndx].dst);
+		// draw_line(cub, cub->player->x + cos(cub->rays[ndx].angle) * cub->rays[ndx].dst,
+		// 		  cub->player->y + sin(cub->rays[ndx].angle) * cub->rays[ndx].dst);
 		rend3r_walls(cub, ndx);
 		ray_angle += (double)FOV_ANGLE / cub->num_rays;
 		ndx++;
