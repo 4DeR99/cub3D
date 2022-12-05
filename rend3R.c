@@ -6,7 +6,7 @@
 /*   By: moulmado <moulmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 14:08:07 by moulmado          #+#    #+#             */
-/*   Updated: 2022/11/30 12:50:52 by moulmado         ###   ########.fr       */
+/*   Updated: 2022/12/02 18:08:52 by moulmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,11 @@ void rend3R_init(t_cub *cub)
 {
 	cub->rend3D->img = mlx_new_image(cub->mlx, cub->win_width,
 									 cub->win_height);
-	if (!cub->rend3D->img)
-		exit(1);
+	protect(cub->rend3D->img);
 	cub->rend3D->addr = mlx_get_data_addr(cub->rend3D->img,
 										  &cub->rend3D->bits_per_pixel, &cub->rend3D->line_length,
 										  &cub->rend3D->endian);
-	if (!cub->rend3D->addr)
-		exit(1);
+	protect(cub->rend3D->addr);
 	fill_floor_nd_ceiling(cub, get_color(cub->map_items->ceiling_colors),
 						  get_color(cub->map_items->floor_colors));
 }

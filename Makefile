@@ -3,7 +3,7 @@ INC = cub3d.h
 SRC = main.c cub_init.c draw.c events.c map_init.c map.c math.c ray_cast.c \
 		rend3R.c update.c upload_rays.c cub_tools.c parcer/map_parcer.c \
 		parcer/tools.c parcer/check_line.c parcer/ft_split.c parcer/fix_map.c \
-		parcer/parcer.c parcer/take_colors_walls.c parcer/free.c
+		parcer/parcer.c parcer/take_colors_walls.c parcer/free.c sprite.c
 
 OBJ = $(SRC:.c=.o)
 

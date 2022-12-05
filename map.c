@@ -6,7 +6,7 @@
 /*   By: moulmado <moulmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 13:16:33 by moulmado          #+#    #+#             */
-/*   Updated: 2022/11/27 11:42:09 by moulmado         ###   ########.fr       */
+/*   Updated: 2022/12/04 13:04:55 by moulmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,18 @@ int is_same_block(t_cub *cub, int grid_i, int grid_j)
 	if (o_i == grid_i && o_j == grid_j)
 		return (1);
 	return (0);
+}
+
+int door_check(t_cub *cub, double x, double y, int ndx)
+{
+	int grid_i;
+	int grid_j;
+	int dst;
+
+	grid_i = y / BLOCK_SIZE;
+	grid_j = x / BLOCK_SIZE;
+	dst = distance(cub->player->x, cub->player->y, x, y);
+	cub->rays[ndx].door_hit = cub->map_items->map[grid_i][grid_j] - '0'
+			&& dst > BLOCK_SIZE * 2;
+	return (cub->rays[ndx].door_hit);
 }

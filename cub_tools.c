@@ -6,7 +6,7 @@
 /*   By: moulmado <moulmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:41:48 by moulmado          #+#    #+#             */
-/*   Updated: 2022/11/26 12:25:20 by moulmado         ###   ########.fr       */
+/*   Updated: 2022/12/02 18:05:27 by moulmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,13 @@ int get_color(int *c_arr)
 	color <<= 8;
 	color += c_arr[2];
 	return color;
+}
+
+void	protect(void *p)
+{
+	if (!p)
+	{
+		printf("ERROR\n");
+		exit(1);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: moulmado <moulmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 18:19:06 by moulmado          #+#    #+#             */
-/*   Updated: 2022/11/29 12:56:39 by moulmado         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:50:37 by moulmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,19 +124,17 @@ static void set_dot(t_cub *cub)
 // 	mlx_destroy_image(cub->mlx, cub->map_img->img);
 // }
 
-void map_init(t_cub *cub)
+int map_init(t_cub *cub)
 {
     int y = cub->player->y - (7 * BLOCK_SIZE);
     int x;
     char **map = map_clone(cub->map_items->map);
     cub->map_img->img = mlx_new_image(cub->mlx, 24 * 16 + 2,
             14 * 16 + 2);
-    if (!cub->map_img->img)
-        exit(1);
+    protect(cub->map_img->img);
     cub->map_img->addr = mlx_get_data_addr(cub->map_img->img, &cub->map_img->bits_per_pixel,
                                            &cub->map_img->line_length, &cub->map_img->endian);
-    if (!cub->map_img->addr)
-        exit(1);
+    protect(cub->map_img->addr);
     for(int i = 0 ; i < 14*BLOCK_SIZE;i++)
     {
         x = cub->player->x - (12 * BLOCK_SIZE);
@@ -159,4 +157,5 @@ void map_init(t_cub *cub)
     mlx_put_image_to_window(cub->mlx, cub->mlx_window,
                             cub->map_img->img, 0, 0);
     mlx_destroy_image(cub->mlx, cub->map_img->img);
+    return (0);
 }

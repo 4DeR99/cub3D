@@ -6,7 +6,7 @@
 /*   By: moulmado <moulmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 12:06:50 by moulmado          #+#    #+#             */
-/*   Updated: 2022/11/28 11:48:32 by moulmado         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:37:24 by moulmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ int ray_cast(t_cub *cub, int ndx)
 	cub->rays[ndx].dst = 0;
 	cub->rays[ndx].wallHitX = 0;
 	cub->rays[ndx].wallHitY = 0;
+	cub->rays[ndx].door_hit = 0;
 	cub->rays[ndx].isFacingDown =
 		cub->rays[ndx].angle > 0 && cub->rays[ndx].angle < M_PI;
 	cub->rays[ndx].isFacingUp = !cub->rays[ndx].isFacingDown;

@@ -6,7 +6,7 @@
 /*   By: moulmado <moulmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 10:48:30 by moulmado          #+#    #+#             */
-/*   Updated: 2022/11/28 10:39:37 by moulmado         ###   ########.fr       */
+/*   Updated: 2022/11/30 21:09:14 by moulmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void pos_update(t_cub *cub)
 		cub->player->x += cos(cub->player->rotation_angle + cub->player->walk_angle) * move_step;
 		cub->player->y += sin(cub->player->rotation_angle + cub->player->walk_angle) * move_step;
 	}
-	else if (cub->map_items->map[grid_i][grid_j] != '1' && check_sides(cub))
+	else if (cub->map_items->map[grid_i][grid_j] == '0' && check_sides(cub))
 	{
 		cub->player->x += cos(cub->player->rotation_angle + cub->player->walk_angle) * move_step;
 		cub->player->y += sin(cub->player->rotation_angle + cub->player->walk_angle) * move_step;
